@@ -8,6 +8,7 @@
     'depends':['account','base'],
     'data':[
         'views/base_menus.xml',
-        'views/iti_student_views.xml'
+        'views/iti_student_views.xml',
+        'views/iti_track_views.xml'
     ]
 }
