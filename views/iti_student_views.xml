@@ -8,7 +8,7 @@
                 <tree>
                     <field name="name" />
                     <field name="salary"/>
-                    <field name="age"/>
+<!--                    <field name="age"/>-->
                 </tree>
             </field>
         </record>
@@ -20,13 +20,17 @@
                 <form>
                     <header>
                         <button name="approve_action" type="object" string="Approve"/>
+                        <field name="levels" widget="statusbar" options="{'clickable':'1'}"/>
+                        <button name="create_level_log" type="object" string="Create Log"/>
                     </header>
                     <sheet>
                         <notebook>
                             <page string="Page 1">
                                 <group string="Personal Info">
                                     <field name="name"/>
+                                    <field name="roll_id"/>
                                     <field name="age"/>
+                                    <field name="graduate_age"/>
                                     <field name="info"/>
                                     <field name="is_accepted"/>
                                     <field name="birth_date"/>
@@ -43,6 +47,17 @@
                                 <group>
                                     <field name="track_id" domain="[('is_opened','=',True)]"/>
                                     <field name="track_capacity"/>
+                                </group>
+                            </page>
+                            <page string="Level Logs">
+                                <group>
+                                    <field name="level_logs">
+                                        <tree>
+                                            <field name="description"/>
+                                            <field name="create_date"/>
+                                            <field name="create_uid"/>
+                                        </tree>
+                                    </field>
                                 </group>
                             </page>
                         </notebook>
