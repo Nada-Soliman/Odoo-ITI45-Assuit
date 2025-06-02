@@ -44,6 +44,10 @@ class ITIStudent(models.Model):
         self.salary = 60000
         self.levels = "level3"
 
+    def create_patient_log(self):
+        vals = {'description': "State changed to %s" % (self.state), 'patient_id': self.id}
+
+        self.env['hms.patient.log'].create(vals)
     def create_level_log(self):
         vals = {
 

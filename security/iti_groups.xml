@@ -1,0 +1,25 @@
+<odoo>
+    <!--category-->
+    <record id="iti_department" model="ir.module.category">
+        <field name="name">ITI Departments</field>
+    </record>
+    <!--groups-->
+    <record id="manager_group" model="res.groups">
+        <field name="name">ITI Manager</field>
+        <field name="category_id" ref="iti_department"/>
+    </record>
+    <record id="employee_group" model="res.groups">
+        <field name="name">ITI Employee</field>
+        <field name="category_id" ref="iti_department"/>
+    </record>
+
+    <!---->
+    <record id="manager_student_record_rule" model="ir.rule">
+        <field name="name">Manager Student Record Rule</field>
+        <field name="model_id" ref="model_iti_student"/>
+        <field name="domain_force">[('create_uid','=','user.id')]</field>
+        <field name="groups" eval="[(4,ref('manager_group')),(4,ref('employee_group'))]"/>
+    </record>
+
+
+</odoo>
